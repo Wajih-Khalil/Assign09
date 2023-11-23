@@ -3,7 +3,6 @@
 
 // Answer 1 (data collection)
 
-// Question 1
 function submitForm() {
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
@@ -12,13 +11,13 @@ function submitForm() {
     userDataDiv.innerHTML = `<p>Name: ${name}</p><p>Email: ${email}</p>`;
 }
 
-// Question 2
+// Answer 2 (read more option)
 function showDetails() {
     const fullDetails = document.getElementById('fullDetails');
     fullDetails.classList.toggle('hidden');
 }
 
-// Question 3
+// Answer 3 (Student detail)
 function addStudent() {
     const name = document.getElementById('studentName').value;
     const grade = document.getElementById('studentGrade').value;
@@ -42,6 +41,7 @@ function addStudent() {
     const editButton = document.createElement('button');
     editButton.textContent = 'Edit';
     editButton.onclick = function () {
+        
         // Show a hidden form for editing
         document.getElementById('editForm').classList.remove('hidden');
 
@@ -64,7 +64,7 @@ function addStudent() {
     cell3.appendChild(editButton);
 }
 
-// Question 3 (Continued)
+//Update Student
 function updateStudent() {
     // Update the table cell values (similar to the edit functionality)
     const tableBody = document.querySelector('#studentTable tbody');
@@ -80,13 +80,14 @@ function updateStudent() {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    // Add a listener to the table body to handle the edit functionality
+   
     const tableBody = document.querySelector('#studentTable tbody');
     tableBody.addEventListener('click', function (event) {
         const target = event.target;
         if (target.tagName.toLowerCase() === 'button' && target.textContent.toLowerCase() === 'edit') {
             const selectedRow = target.parentNode.parentNode;
-            // Mark the selected row for editing
+            
+            // adding new 
             selectedRow.classList.add('editing');
         }
     });
