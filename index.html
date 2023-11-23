@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Webpage Operations</title>
+    
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Question 1: Signup Form -->
+    <h2>Signup Form</h2>
+    <form id="signupForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <button type="button" onclick="submitForm()">Submit</button>
+    </form>
+
+    <div id="userData"></div>
+
+    <!-- Question 2: Read More -->
+    <h2>Item Details</h2>
+    <p>Some details about the item. <span id="fullDetails" class="hidden">Full details of the item.</span></p>
+    <button onclick="showDetails()">Read more</button>
+
+    <!-- Question 3: Student Details Table -->
+    <h2>Student Details</h2>
+    <form id="studentForm">
+        <label for="studentName">Name:</label>
+        <input type="text" id="studentName" name="studentName" required>
+
+        <label for="studentGrade">Grade:</label>
+        <input type="text" id="studentGrade" name="studentGrade" required>
+
+        <button type="button" onclick="addStudent()">Add Student</button>
+    </form>
+
+    <table id="studentTable" border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Grade</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <!-- Question 3 (Continued): Hidden Edit Form -->
+    <form id="editForm" class="hidden">
+        <label for="editName">Name:</label>
+        <input type="text" id="editName" name="editName" required>
+
+        <label for="editGrade">Grade:</label>
+        <input type="text" id="editGrade" name="editGrade" required>
+
+        <button type="button" onclick="updateStudent()">Update</button>
+    </form>
+
+    <script src="assign.js"></script>
+</body>
+</html>
