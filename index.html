@@ -7,8 +7,57 @@
     <title>Webpage Operations</title>
     
     <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
         .hidden {
             display: none;
+        }
+
+        table {
+            max-width: 600px;
+            margin: 20px auto;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
         }
     </style>
 </head>
@@ -67,6 +116,6 @@
         <button type="button" onclick="updateStudent()">Update</button>
     </form>
 
-    <script src="assign.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
