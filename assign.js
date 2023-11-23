@@ -28,9 +28,6 @@ function chec() {
 // _______________________QUESTION NO 02 ()_________//
 
 
-// baqi hey
-
-
 // _______________________QUESTION NO 03 (TODO APP)_________//
 
 // // ---FOR HTML---//
