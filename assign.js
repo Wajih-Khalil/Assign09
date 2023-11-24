@@ -1,96 +1,96 @@
-
 // CHAPTER 49-52
 
 // Answer 1 (data collection)
 
 function submitForm() {
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
 
-    const userDataDiv = document.getElementById('userData');
-    userDataDiv.innerHTML = `<p>Name: ${name}</p><p>Email: ${email}</p>`;
+  const userDataDiv = document.getElementById("userData");
+  userDataDiv.innerHTML = `<p>Name: ${name}</p><p>Email: ${email}</p>`;
 }
 
 // Answer 2 (read more option)
 function showDetails() {
-    const fullDetails = document.getElementById('fullDetails');
-    fullDetails.classList.toggle('hidden');
+  const fullDetails = document.getElementById("fullDetails");
+  fullDetails.classList.toggle("hidden");
 }
 
-// Answer 3 (Student detail)
+// Answer 3 (Student details)
 function addStudent() {
-    const name = document.getElementById('studentName').value;
-    const grade = document.getElementById('studentGrade').value;
+  const name = document.getElementById("studentName").value;
+  const grade = document.getElementById("studentGrade").value;
 
-    const tableBody = document.querySelector('#studentTable tbody');
-    const newRow = tableBody.insertRow();
+  const tableBody = document.querySelector("#studentTable tbody");
+  const newRow = tableBody.insertRow();
 
-    const cell1 = newRow.insertCell(0);
-    const cell2 = newRow.insertCell(1);
-    const cell3 = newRow.insertCell(2);
+  const cell1 = newRow.insertCell(0);
+  const cell2 = newRow.insertCell(1);
+  const cell3 = newRow.insertCell(2);
 
-    cell1.textContent = name;
-    cell2.textContent = grade;
+  cell1.textContent = name;
+  cell2.textContent = grade;
 
-    const deleteButton = document.createElement('button');
-    deleteButton.textContent = 'Delete';
-    deleteButton.onclick = function () {
-        tableBody.removeChild(newRow);
+  const deleteButton = document.createElement("button");
+  deleteButton.textContent = "Delete";
+  deleteButton.onclick = function () {
+    tableBody.removeChild(newRow);
+  };
+
+  const editButton = document.createElement("button");
+  editButton.textContent = "Edit";
+  editButton.onclick = function () {
+    // Showing a hidden form for editing
+    document.getElementById("editForm").classList.remove("hidden");
+
+    // Populating the form with current values
+    document.getElementById("editName").value = name;
+    document.getElementById("editGrade").value = grade;
+
+    // Setting up an event listener for the edit form
+    document.getElementById("editForm").onsubmit = function (event) {
+      event.preventDefault();
+      // Updating the table cell values
+      cell1.textContent = document.getElementById("editName").value;
+      cell2.textContent = document.getElementById("editGrade").value;
+      // Hiding the edit form
+      document.getElementById("editForm").classList.add("hidden");
     };
+  };
 
-    const editButton = document.createElement('button');
-    editButton.textContent = 'Edit';
-    editButton.onclick = function () {
-        
-        // Show a hidden form for editing
-        document.getElementById('editForm').classList.remove('hidden');
-
-        // Populate the form with current values
-        document.getElementById('editName').value = name;
-        document.getElementById('editGrade').value = grade;
-
-        // Set up an event listener for the edit form
-        document.getElementById('editForm').onsubmit = function (event) {
-            event.preventDefault();
-            // Update the table cell values
-            cell1.textContent = document.getElementById('editName').value;
-            cell2.textContent = document.getElementById('editGrade').value;
-            // Hide the edit form
-            document.getElementById('editForm').classList.add('hidden');
-        };
-    };
-
-    cell3.appendChild(deleteButton);
-    cell3.appendChild(editButton);
+  cell3.appendChild(deleteButton);
+  cell3.appendChild(editButton);
 }
 
 //Update Student
 function updateStudent() {
-    // Update the table cell values (similar to the edit functionality)
-    const tableBody = document.querySelector('#studentTable tbody');
-    const editName = document.getElementById('editName').value;
-    const editGrade = document.getElementById('editGrade').value;
+  // Update the table cell values (like the edit functionality)
+  const tableBody = document.querySelector("#studentTable tbody");
+  const editName = document.getElementById("editName").value;
+  const editGrade = document.getElementById("editGrade").value;
 
-    const editedRow = document.querySelector('#studentTable tbody tr.editing');
-    editedRow.cells[0].textContent = editName;
-    editedRow.cells[1].textContent = editGrade;
+  const editedRow = document.querySelector("#studentTable tbody tr.editing");
+  editedRow.cells[0].textContent = editName;
+  editedRow.cells[1].textContent = editGrade;
 
-    // Hide the edit form
-    document.getElementById('editForm').classList.add('hidden');
+  // Hiding the edit form
+  document.getElementById("editForm").classList.add("hidden");
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-   
-    const tableBody = document.querySelector('#studentTable tbody');
-    tableBody.addEventListener('click', function (event) {
-        const target = event.target;
-        if (target.tagName.toLowerCase() === 'button' && target.textContent.toLowerCase() === 'edit') {
-            const selectedRow = target.parentNode.parentNode;
-            
-            // adding new 
-            selectedRow.classList.add('editing');
-        }
-    });
+document.addEventListener("DOMContentLoaded", function () {
+  const tableBody = document.querySelector("#studentTable tbody");
+  tableBody.addEventListener("click", function (event) {
+    const target = event.target;
+    if (
+      target.tagName.toLowerCase() === "button" &&
+      target.textContent.toLowerCase() === "edit"
+    ) {
+      const selectedRow = target.parentNode.parentNode;
+
+      // Editing class is added in the selected row
+      selectedRow.classList.add("editing");
+    }
+  });
 });
 
 
