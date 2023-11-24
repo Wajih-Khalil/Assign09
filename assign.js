@@ -47,20 +47,20 @@ function addStudent() {
   const editButton = createButton("Edit", function () {
     const editForm = document.getElementById("editForm");
 
-    // Show a hidden form for editing
+    // Shows a hidden form for editing
     editForm.classList.remove("hidden");
 
-    // Populate the form with current values
+    // Populate's the form with current values
     document.getElementById("editName").value = name;
     document.getElementById("editGrade").value = grade;
 
-    // Set up an event listener for the edit form
+    // Setting up an event listener for the edit form
     editForm.onsubmit = function (event) {
       event.preventDefault();
-      // Update the table cell values
+      // Updating the table cell values
       cell1.textContent = document.getElementById("editName").value;
       cell2.textContent = document.getElementById("editGrade").value;
-      // Hide the edit form
+      // Hiding the edit form
       editForm.classList.add("hidden");
     };
   });
@@ -69,9 +69,9 @@ function addStudent() {
   cell3.appendChild(editButton);
 }
 
-// Update Student
+// Updating Student
 function updateStudent() {
-  // Update the table cell values (similar to the edit functionality)
+  // Updating the table cell values 
   const tableBody = document.querySelector("#studentTable tbody");
   const editName = document.getElementById("editName").value;
   const editGrade = document.getElementById("editGrade").value;
@@ -80,7 +80,7 @@ function updateStudent() {
   editedRow.cells[0].textContent = editName;
   editedRow.cells[1].textContent = editGrade;
 
-  // Hide the edit form
+  // Hiding the edit form
   document.getElementById("editForm").classList.add("hidden");
 }
 
@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ) {
       const selectedRow = target.parentNode.parentNode;
 
-      // Add 'editing' class to the selected row
+      // Adding 'editing' class to the selected row
       selectedRow.classList.add("editing");
     }
   });
