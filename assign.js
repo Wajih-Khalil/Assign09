@@ -16,7 +16,7 @@ function showDetails() {
   fullDetails.classList.toggle("hidden");
 }
 
-// Answer 3 (Student details)
+// Answer 3 (Student detail)
 function addStudent() {
   const name = document.getElementById("studentName").value;
   const grade = document.getElementById("studentGrade").value;
@@ -40,20 +40,20 @@ function addStudent() {
   const editButton = document.createElement("button");
   editButton.textContent = "Edit";
   editButton.onclick = function () {
-    // Showing a hidden form for editing
+    // Show a hidden form for editing
     document.getElementById("editForm").classList.remove("hidden");
 
-    // Populating the form with current values
+    // Populate the form with current values
     document.getElementById("editName").value = name;
     document.getElementById("editGrade").value = grade;
 
-    // Setting up an event listener for the edit form
+    // Set up an event listener for the edit form
     document.getElementById("editForm").onsubmit = function (event) {
       event.preventDefault();
-      // Updating the table cell values
+      // Update the table cell values
       cell1.textContent = document.getElementById("editName").value;
       cell2.textContent = document.getElementById("editGrade").value;
-      // Hiding the edit form
+      // Hide the edit form
       document.getElementById("editForm").classList.add("hidden");
     };
   };
@@ -64,7 +64,7 @@ function addStudent() {
 
 //Update Student
 function updateStudent() {
-  // Update the table cell values (like the edit functionality)
+  // Update the table cell values (similar to the edit functionality)
   const tableBody = document.querySelector("#studentTable tbody");
   const editName = document.getElementById("editName").value;
   const editGrade = document.getElementById("editGrade").value;
@@ -73,7 +73,7 @@ function updateStudent() {
   editedRow.cells[0].textContent = editName;
   editedRow.cells[1].textContent = editGrade;
 
-  // Hiding the edit form
+  // Hide the edit form
   document.getElementById("editForm").classList.add("hidden");
 }
 
@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ) {
       const selectedRow = target.parentNode.parentNode;
 
-      // Editing class is added in the selected row
+      // Add 'editing' class to the selected row
       selectedRow.classList.add("editing");
     }
   });
