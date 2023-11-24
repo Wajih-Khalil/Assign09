@@ -92,7 +92,3 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
-
-
-    ee.parentNode.firstChild.nodeValue = editvalue
-}
